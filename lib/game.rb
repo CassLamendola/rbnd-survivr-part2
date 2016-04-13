@@ -37,10 +37,12 @@ class Game
 	def eliminate
 		if immunity_challenge == @tribe_one
 			losing_member = @tribe_one.members.sample
-			return @tribe_one.members.delete(losing_member)
+			@tribe_one.members.delete(losing_member)
+			return  @tribe_one
 		else
 			losing_member = @tribe_two.members.sample
-			return @tribe_two.members.delete(losing_member)
+			@tribe_two.members.delete(losing_member)
+			return @tribe_two
 		end
 	end
 
