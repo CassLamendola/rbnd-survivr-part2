@@ -21,27 +21,41 @@ class Game
 	end
 
 	def merge(merged_tribes)
-		@new_tribe = Tribe.new(tribe: merged_tribes, members: [])
-		@new_tribe.members << @tribe_one.members.first
-		@new_tribe.members << @tribe_two.members.first
+		@new_tribe = Tribe.new(name: merged_tribes, members: [])
+		@tribe_one.members.each do |member|
+			@new_tribe.members << member
+		end
+		@tribe_two.members.each do |member|
+			@new_tribe.members << member
+		end
 		clear_tribes
 		add_tribe(@new_tribe)
-		return @new_tribe
+		return @tribes[0]
 	end
 
 	def individual_immunity_challenge
-		tribe = @tribes.sample
-		return tribe.members.sample
+		tribe = @tribes[0]
+		#puts tribe.members
+		#puts '--'
+		winner = tribe.members.sample
+		puts "#{winner} won the immunity challenge!"
+		#puts '--'
+		#puts tribe.members
+		return winner
 	end
 
 	def eliminate
 		if immunity_challenge == @tribe_one
 			losing_member = @tribe_one.members.sample
 			@tribe_one.members.delete(losing_member)
-			return  @tribe_one
+			puts "#{losing_member} was eliminated!"
+			#puts @tribe_one.members
+			return @tribe_one
 		else
 			losing_member = @tribe_two.members.sample
 			@tribe_two.members.delete(losing_member)
+			puts "#{losing_member} was eliminated!"
+			#puts @tribe_two.members
 			return @tribe_two
 		end
 	end
