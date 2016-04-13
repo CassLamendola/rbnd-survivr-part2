@@ -27,11 +27,18 @@ end
 
 def phase_two
 	3.times do
-		@borneo.individual_immunity_challenge
+		immune_member = @borneo.individual_immunity_challenge
+		tribe = @borneo.tribes[0]
+		tribe.tribal_council(immune: immune_member)
 	end
 end
 
 def phase_three
+	7.times do
+		immune_member = @borneo.individual_immunity_challenge
+		tribe = @borneo.tribes[0]
+		@jury.add_member(tribe.tribal_council(immune: immune_member))
+	end
 end
 
 
