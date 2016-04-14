@@ -1,3 +1,4 @@
+require_relative "colorizr/lib/colorizr"
 require_relative "game"
 require_relative "tribe"
 require_relative "contestant"
@@ -20,18 +21,20 @@ require_relative "jury"
 
 #This is where you will write your code for the three phases
 def phase_one
-	puts "-" * 10
+	divider
 	puts "Phase one:"
-	puts "-" * 10
+	divider
+	puts "Tribes: #{@borneo.tribes[0].name} & #{@borneo.tribes[1].name}"
 	8.times do 
 		@borneo.eliminate
 	end
 end
 
 def phase_two
-	puts "-" * 10
+	divider
 	puts "Phase two:"
-	puts "-" * 10
+	divider
+	puts "New Tribe: #{@borneo.tribes[0].name}"
 	3.times do
 		immune_member = @borneo.individual_immunity_challenge
 		@merge_tribe.tribal_council(immune: immune_member)
@@ -39,13 +42,17 @@ def phase_two
 end
 
 def phase_three
-	puts "-" * 10
+	divider
 	puts "Phase three:"
-	puts "-" * 10
+	divider
 	7.times do
 		immune_member = @borneo.individual_immunity_challenge
 		@jury.add_member(@merge_tribe.tribal_council(immune: immune_member))
 	end
+end
+
+def divider
+	puts "-" * 30
 end
 
 
@@ -59,4 +66,5 @@ phase_three #7 elminiations become jury members
 finalists = @merge_tribe.members #set finalists
 vote_results = @jury.cast_votes(finalists) #Jury members report votes
 @jury.report_votes(vote_results) #Jury announces their votes
+divider
 @jury.announce_winner(vote_results) #Jury announces final winner

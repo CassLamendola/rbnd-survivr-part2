@@ -1,3 +1,4 @@
+require_relative "colorizr/lib/colorizr"
 class Jury
 	attr_accessor :members
 
@@ -6,6 +7,8 @@ class Jury
 	end
 
 	def add_member(name)
+		name.name = name.name.light_blue
+		puts "#{name} was added to the jury."
 		@members << name
 	end
 
@@ -13,9 +16,9 @@ class Jury
 		puts "-" * 30
 		@finalist_one = finalists[0]
 		@finalist_two = finalists[1]
+		color_finalists(@finalist_one, @finalist_two)
 		@votes = Hash[finalists[0], 0, finalists[1], 0]
 		@members.each do |member|
-			#puts finalists
 			vote = finalists.sample
 			@votes[vote] +=1
 			puts "#{member.name} " + "voted for " + "#{vote}"
@@ -24,9 +27,14 @@ class Jury
 		return @votes
 	end
 
+	def color_finalists(one, two)
+		one.name = one.name.pink
+		two.name = two.name.green
+	end
+
 	def report_votes(final_votes)
-		puts "#{@finalist_one} - #{@votes[@finalist_one]}"
-		puts "#{@finalist_two} - #{@votes[@finalist_two]}"
+		puts "#{@finalist_one} got #{@votes[@finalist_one]} votes"
+		puts "#{@finalist_two} got #{@votes[@finalist_two]} votes"
 	end
 
 	def announce_winner(final_votes)
