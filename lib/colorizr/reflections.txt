@@ -1,0 +1,18 @@
+Q. How does your gem take advantage of Ruby's metaprogramming capabilities?
+
+A. My gem uses instance_eval to create instance methods for the String class. It also has a method that uses define_method to create methods for each color.
+
+
+Q. How long did you spend working on this project?
+
+A. Approximately 2 hours of active programming, plus another two or three reviewing the previous lesson and researching Ruby metaprogramming.
+
+
+Q. What was the most rewarding challenge you conquered?
+
+A. The most challenging part for me was using define_method to create all of the color methods. I spent more than half of my time on the project just trying to get that to work. In the end, it was a very simple mistake that was tripping me up - I forgot to actually call my create_colors method afterwards. This was incredibly frustrating until I figured it out. Then I just had to laugh.
+
+
+Q. Where do you still have room to grow?
+
+A. Well, it would help if I stopped overlooking simple steps like calling a method after writing it. ;)

@@ -1,4 +1,3 @@
-require_relative "colorizr/lib/colorizr"
 class Contestant
 	attr_accessor :name
 

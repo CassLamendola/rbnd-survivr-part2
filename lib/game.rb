@@ -1,4 +1,3 @@
-require_relative "colorizr/lib/colorizr"
 class Game
 	attr_reader :tribes
 
@@ -29,11 +28,10 @@ class Game
 
 	def merge(merged_tribes)
 		@new_tribe = Tribe.new(name: merged_tribes.yellow, members: [])
-		@tribe_one.members.each do |member|
-			@new_tribe.members << member
-		end
-		@tribe_two.members.each do |member|
-			@new_tribe.members << member
+		@tribes.each do |tribe|
+			tribe.members.each do |member|
+				@new_tribe.members << member
+			end
 		end
 		clear_tribes
 		add_tribe(@new_tribe)

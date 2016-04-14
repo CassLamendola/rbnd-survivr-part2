@@ -1,4 +1,3 @@
-require_relative "colorizr/lib/colorizr"
 class Tribe
 	attr_accessor :name, :members
 
