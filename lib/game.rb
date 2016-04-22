@@ -45,18 +45,4 @@ class Game
 		return winner
 	end
 
-	def eliminate
-		if immunity_challenge == @tribe_one
-			losing_member = @tribe_one.members.sample
-			@tribe_one.members.delete(losing_member)
-			puts "#{losing_member} was eliminated from #{@tribe_one}!"
-			return @tribe_one
-		else
-			losing_member = @tribe_two.members.sample
-			@tribe_two.members.delete(losing_member)
-			puts "#{losing_member} was eliminated from #{@tribe_two}!"
-			return @tribe_two
-		end
-	end
-
 end

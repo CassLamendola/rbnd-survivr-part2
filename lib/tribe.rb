@@ -19,7 +19,7 @@ class Tribe
 		@non_immune_members.delete(@immune)
 		eliminated_member = @non_immune_members.sample
 		delete_members(eliminated_member)
-		puts "#{@name} voted #{eliminated_member.name} off the island!"
+		puts "#{eliminated_member.name} from #{@name} was voted off the island!"
 		return eliminated_member
 	end
 

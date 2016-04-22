@@ -25,8 +25,9 @@ def phase_one
 	puts "Phase one:"
 	divider
 	puts "Tribes: #{@borneo.tribes[0].name} & #{@borneo.tribes[1].name}"
-	8.times do 
-		@borneo.eliminate
+	8.times do
+		tribe = @borneo.immunity_challenge 
+		tribe.tribal_council
 	end
 end
 
