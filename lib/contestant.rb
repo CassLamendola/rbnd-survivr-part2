@@ -1,3 +1,4 @@
+require 'colorizr'
 class Contestant
 	attr_accessor :name
 

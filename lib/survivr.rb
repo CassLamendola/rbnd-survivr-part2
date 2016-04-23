@@ -1,4 +1,4 @@
-
+require 'colorizr'
 require_relative "game"
 require_relative "tribe"
 require_relative "contestant"
@@ -24,7 +24,6 @@ def phase_one
 	divider
 	puts "Phase one:"
 	divider
-	puts "Tribes: #{@borneo.tribes[0].name} & #{@borneo.tribes[1].name}"
 	8.times do
 		tribe = @borneo.immunity_challenge 
 		tribe.tribal_council
