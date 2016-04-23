@@ -5,14 +5,14 @@ class Game
 	def initialize(tribe_one, tribe_two)
 		@tribe_one = tribe_one
 		@tribe_two = tribe_two
-		#color_tribes(@tribe_one, @tribe_two)
+		color_tribes(@tribe_one, @tribe_two)
 		@tribes = [@tribe_one, @tribe_two]
 	end
 
-	#def color_tribes(one, two)
-	#	one.name = one.name.red
-	#	two.name = two.name.blue
-	#end
+	def color_tribes(one, two)
+		one.name = one.name.red
+		two.name = two.name.blue
+	end
 
 	def add_tribe(tribe)
 		@tribes << tribe
@@ -27,7 +27,7 @@ class Game
 	end
 
 	def merge(merged_tribes)
-		@new_tribe = Tribe.new(name: merged_tribes, members: [])
+		@new_tribe = Tribe.new(name: merged_tribes.yellow, members: [])
 		@tribes.each do |tribe|
 			tribe.members.each do |member|
 				@new_tribe.members << member
